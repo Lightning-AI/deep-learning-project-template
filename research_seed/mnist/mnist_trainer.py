@@ -20,7 +20,7 @@ def main(hparams):
 
 
 if __name__ == '__main__':
-    parser = ArgumentParser()
+    parser = ArgumentParser(add_help=False)
     parser.add_argument('--gpus', type=str, default=None)
     parser.add_argument('--nodes', type=int, default=1)
 
