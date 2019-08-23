@@ -1,3 +1,6 @@
+"""
+This file runs the main training/val loop, etc... using Lightning Trainer    
+"""
 from pytorch_lightning import Trainer
 from argparse import ArgumentParser
 from research_seed.mnist.mnist import CoolSystem
