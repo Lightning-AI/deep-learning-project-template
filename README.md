@@ -12,7 +12,7 @@ What it does
 
 ## Modules   
 List your modules here. Each module contains all code for a full system including how to run instructions.   
-- [MNIST]()
+- [MNIST](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/mnist)
 
 ### Citation   
 ```
