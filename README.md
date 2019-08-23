@@ -10,9 +10,30 @@ The goal of this seed is to structure ML paper-code the same so that work can ea
 # Your Project Name   
 What it does   
 
+## How to run   
+First, install dependencies   
+```python
+# clone project   
+git clone https://github.com/YourGithubName/Your-project-name   
+
+# install project   
+cd Your-project-name 
+pip install -e .   
+pip install requirements.txt
+ ```   
+ Next, navigate to the Module of interest and run it.   
+ ```python
+# module folder
+cd research_seed/my_module   
+
+# run module  
+python my_module_trainer.py    
+```
+
 ## Modules   
 List your modules here. Each module contains all code for a full system including how to run instructions.   
-- [MNIST](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/mnist)
+- [MNIST](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/mnist)  
+
 
 ### Citation   
 ```
