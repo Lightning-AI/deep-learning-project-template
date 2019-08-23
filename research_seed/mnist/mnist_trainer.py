@@ -19,7 +19,7 @@ def main(hparams):
     trainer.fit(model)
 
 
-if __name__ == '__init__':
+if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--gpus', type=str, default=None)
     parser.add_argument('--nodes', type=int, default=1)
