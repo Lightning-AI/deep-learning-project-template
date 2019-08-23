@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-setup(name='YouResearchProject',
+setup(name='research_seed',
       version='0.0.1',
       description='Describe Your Cool Project',
       author='',
