@@ -72,8 +72,6 @@ class CoolSystem(pl.LightningModule):
 
         # training specific (for this model)
         parser.add_argument('--max_nb_epochs', default=2, type=int)
-        parser.add_argument('--gpus', type=str, default=None)
-        parser.add_argument('--nodes', type=int, default=1)
 
         return parser
 
