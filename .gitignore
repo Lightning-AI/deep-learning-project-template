@@ -31,7 +31,6 @@ tests/tests_tt_dir/
 tests/save_dir
 default/   
 data/
-MNIST/
 test_tube_logs/
 test_tube_data/
 datasets/
