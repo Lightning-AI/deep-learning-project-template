@@ -36,7 +36,9 @@ test_tube_data/
 datasets/
 model_weights/
 tests/save_dir  
-tests/tests_tt_dir/  
+tests/tests_tt_dir/
+processed/
+raw/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
