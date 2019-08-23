@@ -1,3 +1,6 @@
+"""
+This file defines the core research contribution   
+"""
 import os
 import torch
 from torch.nn import functional as F
