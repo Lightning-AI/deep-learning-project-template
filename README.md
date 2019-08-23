@@ -89,4 +89,14 @@ trainer.fit(model)
 ### Trainer   
 It's recommended that you have a single trainer per lightning module. However, you can also use a single trainer for all your LightningModules.    
 
-Check out the [MNIST example](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/mnist).
+Check out the [MNIST example](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/mnist).  
+
+### Citation   
+```
+@article{YourName,
+  title={Your Title},
+  author={Your team},
+  journal={Location},
+  year={Year}
+}
+```   
