@@ -1,5 +1,8 @@
 ### pytorch-lightning-conference-seed
-Use this seed to refactor your research code with a paper submission or to start a new research project.   
+Use this seed to refactor your PyTorch research code for:  
+- a paper submission  
+- a new research project.     
+
 [Read the usage instructions here](https://github.com/williamFalcon/pytorch-lightning-conference-seed/blob/master/HOWTO.md)
 
 #### Goals  
