@@ -53,10 +53,13 @@ cd research_seed/mnist/
 python mnist_trainer.py    
 ```
 
-## Modules   
+## Main Contribution      
 List your modules here. Each module contains all code for a full system including how to run instructions.   
 - [MNIST](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/mnist)  
 
+## Baselines    
+List your baselines here.   
+- [MNIST_baseline](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/baselines/mnist_baselines)  
 
 ### Citation   
 ```
