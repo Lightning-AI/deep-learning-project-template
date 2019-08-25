@@ -59,7 +59,7 @@ List your modules here. Each module contains all code for a full system includin
 
 ## Baselines    
 List your baselines here.   
-- [MNIST_baseline](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/baselines/mnist_baselines)  
+- [MNIST_baseline](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/baselines/mnist_baseline)  
 
 ### Citation   
 ```
