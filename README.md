@@ -47,10 +47,10 @@ pip install requirements.txt
  Next, navigate to [Your Main Contribution (MNIST here)] and run it.   
  ```python
 # module folder
-cd research_seed/my_module   
+cd research_seed/mnist/   
 
-# run module  
-python my_module_trainer.py    
+# run module (example: mnist as your main contribution)   
+python mnist_trainer.py    
 ```
 
 ## Modules   
