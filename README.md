@@ -35,7 +35,7 @@ What it does
 
 ## How to run   
 First, install dependencies   
-```python
+```bash
 # clone project   
 git clone https://github.com/YourGithubName/Your-project-name   
 
@@ -45,7 +45,7 @@ pip install -e .
 pip install requirements.txt
  ```   
  Next, navigate to [Your Main Contribution (MNIST here)] and run it.   
- ```python
+ ```bash
 # module folder
 cd research_seed/mnist/   
 
