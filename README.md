@@ -44,7 +44,7 @@ cd Your-project-name
 pip install -e .   
 pip install requirements.txt
  ```   
- Next, navigate to the Module of interest and run it.   
+ Next, navigate to [Your Main Contribution (MNIST here)] and run it.   
  ```python
 # module folder
 cd research_seed/my_module   
