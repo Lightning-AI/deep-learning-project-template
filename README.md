@@ -42,7 +42,7 @@ git clone https://github.com/YourGithubName/Your-project-name
 # install project   
 cd Your-project-name 
 pip install -e .   
-pip install requirements.txt
+pip install -r requirements.txt
  ```   
  Next, navigate to [Your Main Contribution (MNIST here)] and run it.   
  ```bash
