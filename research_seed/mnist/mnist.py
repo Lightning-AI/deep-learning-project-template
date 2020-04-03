@@ -45,17 +45,14 @@ class CoolSystem(pl.LightningModule):
         # can return multiple optimizers and learning_rate schedulers
         return torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate)
 
-    @pl.data_loader
     def train_dataloader(self):
         # REQUIRED
         return DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=self.hparams.batch_size)
 
-    @pl.data_loader
     def val_dataloader(self):
         # OPTIONAL
         return DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=self.hparams.batch_size)
 
-    @pl.data_loader
     def test_dataloader(self):
         # OPTIONAL
         return DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=self.hparams.batch_size)
