@@ -55,7 +55,7 @@ python simplest_mnist.py
 
 ## Main Contribution      
 List your modules here. Each module contains all code for a full system including how to run instructions.   
-- [Production MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/src/produtcion_mnist)    
+- [Production MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/src/production_mnist)    
 - [Research MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/src/research_mnist)  
 
 ## Baselines    
