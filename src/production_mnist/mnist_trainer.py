@@ -1,9 +1,13 @@
 """
 This file runs the main training/val loop, etc... using Lightning Trainer    
 """
-from pytorch_lightning import Trainer
+import os
+from pytorch_lightning import Trainer, seed_everything
 from argparse import ArgumentParser
-from srv.mnist.mnist import CoolSystem
+from src.production_mnist.mnist import CoolSystem
+from torch.utils.data import DataLoader
+from torchvision.datasets import MNIST
+import torchvision.transforms as transforms
 
 # sets seeds for numpy, torch, etc...
 # must do for DDP to work well
@@ -13,8 +17,8 @@ def main(args):
     # init module
     model = CoolSystem(hparams=args)
 
-    train_loader = DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=self.hparams.batch_size)
-    val_loader = DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=self.hparams.batch_size)
+    train_loader = DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=args.batch_size)
+    val_loader = DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=args.batch_size)
 
     # makes all flags available to trainer from cli
     trainer = Trainer.from_argparse_args(args)
