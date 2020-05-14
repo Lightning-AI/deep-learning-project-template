@@ -3,7 +3,7 @@ This file runs the main training/val loop, etc... using Lightning Trainer
 """
 from pytorch_lightning import Trainer, seed_everything
 from argparse import ArgumentParser
-from srv.mnist.mnist import CoolSystem
+from src.research_mnist.mnist import CoolSystem
 
 # sets seeds for numpy, torch, etc...
 # must do for DDP to work well
@@ -16,6 +16,8 @@ def main(args):
     # most basic trainer, uses good defaults
     trainer = Trainer.from_argparse_args(args)
     trainer.fit(model)
+
+    trainer.test()
 
 
 if __name__ == '__main__':

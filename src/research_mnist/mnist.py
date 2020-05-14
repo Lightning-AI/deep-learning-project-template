@@ -46,6 +46,19 @@ class CoolSystem(pl.LightningModule):
         tensorboard_logs = {'avg_val_loss': avg_loss}
         return {'val_loss': avg_loss, 'log': tensorboard_logs}
 
+    def test_step(self, batch, batch_idx):
+        # OPTIONAL
+        x, y = batch
+        y_hat = self.forward(x)
+        return {'test_loss': F.cross_entropy(y_hat, y)}
+
+    def test_epoch_end(self, outputs):
+        # OPTIONAL
+        avg_loss = torch.stack([x['test_loss'] for x in outputs]).mean()
+
+        tensorboard_logs = {'test_val_loss': avg_loss}
+        return {'test_loss': avg_loss, 'log': tensorboard_logs}
+
     def configure_optimizers(self):
         # REQUIRED
         # can return multiple optimizers and learning_rate schedulers

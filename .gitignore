@@ -120,3 +120,8 @@ venv.bak/
 
 # IDEs
 .idea
+
+# seed project
+lightning_logs/
+MNIST
+.DS_Store

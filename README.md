@@ -47,19 +47,20 @@ pip install -r requirements.txt
  Next, navigate to [Your Main Contribution (MNIST here)] and run it.   
  ```bash
 # module folder
-cd research_seed/mnist/   
+cd src/    
 
 # run module (example: mnist as your main contribution)   
-python mnist_trainer.py    
+python simplest_mnist.py    
 ```
 
 ## Main Contribution      
 List your modules here. Each module contains all code for a full system including how to run instructions.   
-- [MNIST](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/mnist)  
+- [Production MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/src/produtcion_mnist)    
+- [Research MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/src/research_mnist)  
 
 ## Baselines    
 List your baselines here.   
-- [MNIST_baseline](https://github.com/williamFalcon/pytorch-lightning-conference-seed/tree/master/research_seed/baselines/mnist_baseline)  
+- [Research MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/src/research_mnist) 
 
 ### Citation   
 ```
