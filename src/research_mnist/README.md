@@ -8,10 +8,15 @@ python mnist_trainer.py
 
 #### Multiple-GPUs   
 ```bash   
-python mnist_trainer.py --gpus '0,1,2,3'  
+python mnist_trainer.py --gpus 4
+```   
+
+or specific GPUs
+```bash   
+python mnist_trainer.py --gpus '0,3'
 ```   
 
 #### On multiple nodes   
 ```bash  
-python mnist_trainer.py --gpus '0,1,2,3' --nodes 4  
+python mnist_trainer.py --gpus 4 --nodes 4  --precision 16
 ```   

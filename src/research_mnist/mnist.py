@@ -27,7 +27,11 @@ class CoolSystem(pl.LightningModule):
         # REQUIRED
         x, y = batch
         y_hat = self.forward(x)
-        return {'loss': F.cross_entropy(y_hat, y)}
+        loss = F.cross_entropy(y_hat, y)
+
+        tensorboard_logs = {'train_loss': loss}
+
+        return {'loss': loss, 'log': tensorboard_logs}
 
     def validation_step(self, batch, batch_idx):
         # OPTIONAL
@@ -35,10 +39,12 @@ class CoolSystem(pl.LightningModule):
         y_hat = self.forward(x)
         return {'val_loss': F.cross_entropy(y_hat, y)}
 
-    def validation_end(self, outputs):
+    def validation_epoch_end(self, outputs):
         # OPTIONAL
         avg_loss = torch.stack([x['val_loss'] for x in outputs]).mean()
-        return {'avg_val_loss': avg_loss}
+
+        tensorboard_logs = {'avg_val_loss': avg_loss}
+        return {'val_loss': avg_loss, 'log': tensorboard_logs}
 
     def configure_optimizers(self):
         # REQUIRED
@@ -63,7 +69,7 @@ class CoolSystem(pl.LightningModule):
         Specify the hyperparams for this LightningModule
         """
         # MODEL specific
-        parser = ArgumentParser(parents=[parent_parser])
+        parser = ArgumentParser(parents=[parent_parser], add_help=False)
         parser.add_argument('--learning_rate', default=0.02, type=float)
         parser.add_argument('--batch_size', default=32, type=int)
 
