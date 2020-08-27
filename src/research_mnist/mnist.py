@@ -29,52 +29,54 @@ class CoolSystem(pl.LightningModule):
         y_hat = self.forward(x)
         loss = F.cross_entropy(y_hat, y)
 
-        tensorboard_logs = {'train_loss': loss}
+        result = pl.TrainResult(minimize=loss)
+        result.log('train_loss', loss, prog_bar=True)
 
-        return {'loss': loss, 'log': tensorboard_logs}
+        return result
 
     def validation_step(self, batch, batch_idx):
         # OPTIONAL
         x, y = batch
         y_hat = self.forward(x)
-        return {'val_loss': F.cross_entropy(y_hat, y)}
+        loss = F.cross_entropy(y_hat, y)
+        result = pl.EvalResult()
+        result.valid_batch_loss = loss
+        result.log('valid_loss', loss, on_epoch=True, prog_bar=True)
+
+        return result
 
     def validation_epoch_end(self, outputs):
         # OPTIONAL
-        avg_loss = torch.stack([x['val_loss'] for x in outputs]).mean()
+        avg_loss = outputs.valid_batch_loss.mean()
+        result = pl.EvalResult(checkpoint_on=avg_loss)
+        result.log('valid_loss', avg_loss, on_epoch=True, prog_bar=True)
 
-        tensorboard_logs = {'avg_val_loss': avg_loss}
-        return {'val_loss': avg_loss, 'log': tensorboard_logs}
+        return result
 
     def test_step(self, batch, batch_idx):
         # OPTIONAL
         x, y = batch
         y_hat = self.forward(x)
-        return {'test_loss': F.cross_entropy(y_hat, y)}
+        loss = F.cross_entropy(y_hat, y)
+        result = pl.EvalResult()
+        result.test_batch_loss = loss
+        result.log('test_loss', loss, on_epoch=True)
+
+        return result
 
     def test_epoch_end(self, outputs):
         # OPTIONAL
-        avg_loss = torch.stack([x['test_loss'] for x in outputs]).mean()
+        avg_loss = outputs.test_batch_loss.mean()
 
-        tensorboard_logs = {'test_val_loss': avg_loss}
-        return {'test_loss': avg_loss, 'log': tensorboard_logs}
+        result = pl.EvalResult()
+        result.log('test_loss', avg_loss, on_epoch=True)
+        return result
 
     def configure_optimizers(self):
         # REQUIRED
         # can return multiple optimizers and learning_rate schedulers
         return torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate)
 
-    def train_dataloader(self):
-        # REQUIRED
-        return DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=self.hparams.batch_size)
-
-    def val_dataloader(self):
-        # OPTIONAL
-        return DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=self.hparams.batch_size)
-
-    def test_dataloader(self):
-        # OPTIONAL
-        return DataLoader(MNIST(os.getcwd(), train=True, download=True, transform=transforms.ToTensor()), batch_size=self.hparams.batch_size)
 
     @staticmethod
     def add_model_specific_args(parent_parser):
@@ -84,7 +86,6 @@ class CoolSystem(pl.LightningModule):
         # MODEL specific
         parser = ArgumentParser(parents=[parent_parser], add_help=False)
         parser.add_argument('--learning_rate', default=0.02, type=float)
-        parser.add_argument('--batch_size', default=32, type=int)
 
         # training specific (for this model)
         parser.add_argument('--max_nb_epochs', default=2, type=int)
