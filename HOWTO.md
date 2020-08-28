@@ -2,7 +2,7 @@
 Clone the repo    
 
 ```python
-git clone https://github.com/williamFalcon/pytorch-lightning-conference-seed    
+git clone https://github.com/PyTorchLightning/pytorch-lightning-conference-seed    
 ```   
 
 Install the package so you can access everything use package references  
