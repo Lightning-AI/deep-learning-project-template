@@ -37,7 +37,7 @@ import research_mnist  # noqa: E402
 # -- Project information -----------------------------------------------------
 
 # this name shall match the project name in Github as it is used for linking to code
-project = 'lightning-kaggle'
+project = 'conference-seed'
 copyright = research_mnist.__copyright__
 author = research_mnist.__author__
 
