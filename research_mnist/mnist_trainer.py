@@ -1,14 +1,17 @@
 """
-This file runs the main training/val loop, etc... using Lightning Trainer    
+This file runs the main training/val loop, etc. using Lightning Trainer.
 """
-from pytorch_lightning import Trainer, seed_everything
 from argparse import ArgumentParser
-from research_mnist import CoolSystem
+
+from pytorch_lightning import Trainer, seed_everything
+
+from research_mnist.simplest_mnist import CoolSystem
 from research_mnist.mnist_data_module import MNISTDataModule
 
 # sets seeds for numpy, torch, etc...
 # must do for DDP to work well
 seed_everything(123)
+
 
 def main(args):
     # init modules
@@ -22,7 +25,7 @@ def main(args):
     trainer.test()
 
 
-if __name__ == '__main__':
+def main_cli():
     parser = ArgumentParser(add_help=False)
 
     # add args from trainer
@@ -38,3 +41,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     main(args)
+
+
+if __name__ == '__main__':
+    main_cli()
