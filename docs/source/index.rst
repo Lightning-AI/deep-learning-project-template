@@ -10,7 +10,7 @@ Lightning-Kaggle documentation
    :name: start
    :caption: Start here
 
-   api/pl_kaggle.sample_module
+   api/research_mnist.sample_module
 
 
 Indices and tables

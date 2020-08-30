@@ -32,19 +32,19 @@ builtins.__LIGHTNING_BOLT_SETUP__ = True
 
 SPHINX_MOCK_REQUIREMENTS = int(os.environ.get('SPHINX_MOCK_REQUIREMENTS', True))
 
-import pl_kaggle  # noqa: E402
+import research_mnist  # noqa: E402
 
 # -- Project information -----------------------------------------------------
 
 # this name shall match the project name in Github as it is used for linking to code
 project = 'lightning-kaggle'
-copyright = pl_kaggle.__copyright__
-author = pl_kaggle.__author__
+copyright = research_mnist.__copyright__
+author = research_mnist.__author__
 
 # The short X.Y version
-version = pl_kaggle.__version__
+version = research_mnist.__version__
 # The full version, including alpha/beta/rc tags
-release = pl_kaggle.__version__
+release = research_mnist.__version__
 
 # Options for the linkcode extension
 # ----------------------------------
@@ -130,7 +130,7 @@ language = None
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    'api/pl_kaggle.rst',
+    'api/research_mnist.rst',
     'api/modules.rst',
     'PULL_REQUEST_TEMPLATE.md',
 ]
@@ -152,8 +152,8 @@ html_theme_path = [pt_lightning_sphinx_theme.get_html_theme_path()]
 # documentation.
 
 html_theme_options = {
-    'pytorch_project': pl_kaggle.__homepage__,
-    'canonical_url': pl_kaggle.__homepage__,
+    'pytorch_project': research_mnist.__homepage__,
+    'canonical_url': research_mnist.__homepage__,
     'collapse_navigation': False,
     'display_version': True,
     'logo_only': False,
@@ -220,7 +220,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, project, project + ' Documentation', author, project,
-     pl_kaggle.__docs__,
+     research_mnist.__docs__,
      'Miscellaneous'),
 ]
 
@@ -266,7 +266,7 @@ todo_include_todos = True
 
 # packages for which sphinx-apidoc should generate the docs (.rst files)
 PACKAGES = [
-    pl_kaggle.__name__,
+    research_mnist.__name__,
 ]
 
 apidoc_output_folder = os.path.join(PATH_HERE, 'api')
