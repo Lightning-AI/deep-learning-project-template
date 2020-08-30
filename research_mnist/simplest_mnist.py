@@ -1,15 +1,11 @@
 """
-This file defines the core research contribution   
+This file defines the core research contribution.
 """
-import os
-import torch
-from torch.nn import functional as F
-from torch.utils.data import DataLoader
-from torchvision.datasets import MNIST
-import torchvision.transforms as transforms
 from argparse import ArgumentParser
 
 import pytorch_lightning as pl
+import torch
+from torch.nn import functional as F
 
 
 class CoolSystem(pl.LightningModule):
@@ -77,7 +73,6 @@ class CoolSystem(pl.LightningModule):
         # can return multiple optimizers and learning_rate schedulers
         return torch.optim.Adam(self.parameters(), lr=self.hparams.learning_rate)
 
-
     @staticmethod
     def add_model_specific_args(parent_parser):
         """
@@ -91,4 +86,3 @@ class CoolSystem(pl.LightningModule):
         parser.add_argument('--max_nb_epochs', default=2, type=int)
 
         return parser
-

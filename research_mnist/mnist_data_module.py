@@ -1,18 +1,14 @@
 from argparse import ArgumentParser
 
 import pytorch_lightning as pl
-from pytorch_lightning.metrics.functional import accuracy
-import torch
-from torch import nn
-import torch.nn.functional as F
 from torch.utils.data import random_split, DataLoader
-
-# Note - you must have torchvision installed for this example
-from torchvision.datasets import MNIST, CIFAR10
 from torchvision import transforms
+# Note - you must have torchvision installed for this example
+from torchvision.datasets import MNIST
 
 
 class MNISTDataModule(pl.LightningDataModule):
+
     def __init__(self, hparams):
 
         super().__init__()
@@ -25,7 +21,7 @@ class MNISTDataModule(pl.LightningDataModule):
         # We hardcode dataset specific stuff here.
         self.num_classes = 10
         self.dims = (1, 28, 28)
-        self.transform = transforms.Compose([transforms.ToTensor(),])
+        self.transform = transforms.Compose([transforms.ToTensor(), ])
 
         # Basic test that parameters passed are sensible.
         assert (
