@@ -76,7 +76,7 @@ jobs:
 
     - name: Tests
       run: |
-        coverage run --source pl_kaggle -m py.test pl_kaggle tests -v --junitxml=junit/test-results-${{ runner.os }}-${{ matrix.python-version }}-${{ matrix.requires }}.xml
+        coverage run --source research_mnist -m py.test research_mnist tests -v --junitxml=junit/test-results-${{ runner.os }}-${{ matrix.python-version }}-${{ matrix.requires }}.xml
         coverage xml
 
     - name: Upload pytest test results

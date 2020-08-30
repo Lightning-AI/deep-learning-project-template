@@ -4,7 +4,7 @@ import pytest
 
 
 @pytest.mark.parametrize('cli_args', ['--max_epochs 1 --max_steps 3'])
-def test_cpu_template(cli_args):
+def test_run_mnist_trainer(cli_args):
     """Test running CLI for an example with default params."""
     from research_mnist.mnist_trainer import main_cli
 

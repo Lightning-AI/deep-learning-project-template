@@ -8,6 +8,7 @@ from torchvision.datasets import MNIST
 
 
 class MNISTDataModule(pl.LightningDataModule):
+
     def __init__(self, hparams):
 
         super().__init__()

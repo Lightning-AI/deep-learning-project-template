@@ -8,10 +8,6 @@ from pytorch_lightning import Trainer, seed_everything
 from research_mnist.simplest_mnist import CoolSystem
 from research_mnist.mnist_data_module import MNISTDataModule
 
-# sets seeds for numpy, torch, etc...
-# must do for DDP to work well
-seed_everything(123)
-
 
 def main(args):
     # init modules
@@ -26,6 +22,9 @@ def main(args):
 
 
 def main_cli():
+    # sets seeds for numpy, torch, etc...
+    # must do for DDP to work well
+    seed_everything(123)
     parser = ArgumentParser(add_help=False)
 
     # add args from trainer
