@@ -3,13 +3,15 @@ Use this seed to refactor your PyTorch research code for:
 - a paper submission  
 - a new research project.     
 
-[Read the usage instructions here](https://github.com/williamFalcon/pytorch-lightning-conference-seed/blob/master/HOWTO.md)
+[Read the usage instructions here](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/blob/master/HOWTO.md)
 
 #### Goals  
 The goal of this seed is to structure ML paper-code the same so that work can easily be extended and replicated.   
 
-###### DELETE EVERYTHING ABOVE FOR YOUR PROJECT   
----   
+### DELETE EVERYTHING ABOVE FOR YOUR PROJECT  
+ 
+---
+
 <div align="center">    
  
 # Your Project Name     
@@ -47,7 +49,7 @@ pip install -r requirements.txt
  Next, navigate to [Your Main Contribution (MNIST here)] and run it.   
  ```bash
 # module folder
-cd src/    
+cd research_mnist/    
 
 # run module (example: mnist as your main contribution)   
 python simplest_mnist.py    
@@ -55,12 +57,11 @@ python simplest_mnist.py
 
 ## Main Contribution      
 List your modules here. Each module contains all code for a full system including how to run instructions.   
-- [Production MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/src/production_mnist)    
-- [Research MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/src/research_mnist)  
+- [Research MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/research_mnist)  
 
 ## Baselines    
 List your baselines here.   
-- [Research MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/src/research_mnist) 
+- [Research MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/research_mnist) 
 
 ### Citation   
 ```
