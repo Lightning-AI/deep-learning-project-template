@@ -25,7 +25,9 @@ ARXIV
 [![Paper](http://img.shields.io/badge/arxiv-math.co:1480.1111-B31B1B.svg)](https://www.nature.com/articles/nature14539)
 -->
 
-
+[![CI testing](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/workflows/CI%20testing/badge.svg)](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/actions?query=workflow%3A%22CI+testing%22)
+![Check Code formatting](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/workflows/Check%20Code%20formatting/badge.svg)
+[![codecov](https://codecov.io/gh/PyTorchLightning/pytorch-lightning-conference-seed/branch/master/graph/badge.svg)](https://codecov.io/gh/PyTorchLightning/pytorch-lightning-conference-seed)
 
 <!--  
 Conference   
