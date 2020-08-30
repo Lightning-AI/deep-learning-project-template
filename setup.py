@@ -27,12 +27,14 @@ def load_requirements(path_dir=PATH_ROOT, comment_char='#'):
 # the goal of the project is simplicity for researchers, don't want to add too much
 # engineer specific practices
 setup(
+    # TODO: edit your project name, this name appears in PyPI
     name='project',
     version=project.__version__,
     description=project.__docs__,
     author=project.__author__,
     author_email=project.__author_email__,
     url=project.__homepage__,
+    # TODO: update optional download seed
     download_url='https://github.com/PyTorchLightning/pytorch-lightning-conference-seed',
     license=project.__license__,
     packages=find_packages(exclude=['tests', 'docs']),
