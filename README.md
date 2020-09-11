@@ -49,7 +49,7 @@ cd deep-learning-project-template
 pip install -e .   
 pip install -r requirements.txt
  ```   
- Next, navigate toany file and run it.   
+ Next, navigate to any file and run it.   
  ```bash
 # module folder
 cd project
