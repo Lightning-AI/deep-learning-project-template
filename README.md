@@ -42,10 +42,10 @@ What it does
 First, install dependencies   
 ```bash
 # clone project   
-git clone https://github.com/YourGithubName/Your-project-name   
+git clone https://github.com/YourGithubName/deep-learning-project-template
 
 # install project   
-cd Your-project-name 
+cd deep-learning-project-template 
 pip install -e .   
 pip install -r requirements.txt
  ```   
