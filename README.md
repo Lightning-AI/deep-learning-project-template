@@ -52,10 +52,10 @@ pip install -r requirements.txt
  Next, navigate to [Your Main Contribution (MNIST here)] and run it.   
  ```bash
 # module folder
-cd research_mnist/    
+cd src
 
 # run module (example: mnist as your main contribution)   
-python simplest_mnist.py    
+python mnist_classifier.py    
 ```
 
 ## Main Contribution      
