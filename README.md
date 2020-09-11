@@ -55,7 +55,7 @@ pip install -r requirements.txt
 cd src
 
 # run module (example: mnist as your main contribution)   
-python mnist_classifier.py    
+python lit_classifier_main.py    
 ```
 
 ## Main Contribution      

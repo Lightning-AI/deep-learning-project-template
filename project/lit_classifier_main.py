@@ -1,13 +1,9 @@
-import os
 from argparse import ArgumentParser
 
 import torch
 import pytorch_lightning as pl
 from pytorch_lightning.metrics.functional import accuracy
 from torch.nn import functional as F
-from torch.utils.data import DataLoader, random_split
-from torchvision import transforms
-from torchvision.datasets import MNIST
 
 
 class LitClassifier(pl.LightningModule):
@@ -58,6 +54,7 @@ class LitClassifier(pl.LightningModule):
 
 
 def cli_main():
+    from project.datasets.mnist import mnist
     pl.seed_everything(1234)
 
     # args
@@ -70,11 +67,7 @@ def cli_main():
     args = parser.parse_args()
 
     # data
-    dataset = MNIST('', train=True, download=True, transform=transforms.ToTensor())
-    mnist_train, mnist_val = random_split(dataset, [55000, 5000], generator=torch.Generator().manual_seed(1234))
-    mnist_train = DataLoader(mnist_train, batch_size=32)
-    mnist_val = DataLoader(mnist_val, batch_size=32)
-    test_dataset = DataLoader(MNIST('', train=False, download=True, transform=transforms.ToTensor()), batch_size=32)
+    mnist_train, mnist_val, test_dataset = mnist()
 
     # model
     model = LitClassifier(**vars(args))
