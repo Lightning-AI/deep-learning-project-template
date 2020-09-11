@@ -52,7 +52,7 @@ pip install -r requirements.txt
  Next, navigate to [Your Main Contribution (MNIST here)] and run it.   
  ```bash
 # module folder
-cd src
+cd project
 
 # run module (example: mnist as your main contribution)   
 python lit_classifier_main.py    
