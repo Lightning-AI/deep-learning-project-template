@@ -58,13 +58,12 @@ cd project
 python lit_classifier_main.py    
 ```
 
-## Main Contribution      
-List your modules here. Each module contains all code for a full system including how to run instructions.   
-- [Research MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/research_mnist)  
-
-## Baselines    
-List your baselines here.   
-- [Research MNIST](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/tree/master/research_mnist) 
+## Imports
+This project is setup as a package which means you can now easily import any file into any other file like so:
+```python
+from project.datasets.mnist import mnist
+from project.lit_classifier_main import LitClassifier
+```
 
 ### Citation   
 ```
