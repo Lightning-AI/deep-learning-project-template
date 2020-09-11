@@ -1,7 +1,11 @@
-### pytorch-lightning-conference-seed
-Use this seed to refactor your PyTorch research code for:  
-- a paper submission  
-- a new research project.     
+### Deep learning project seed
+Use this seed to start new deep learning / ML projects.
+
+- Built in setup.py
+- Built in requirements
+- Examples with MNIST
+- Badges
+- Bibtex
 
 [Read the usage instructions here](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/blob/master/HOWTO.md)
 
