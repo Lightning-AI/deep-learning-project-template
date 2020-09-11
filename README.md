@@ -7,8 +7,6 @@ Use this seed to start new deep learning / ML projects.
 - Badges
 - Bibtex
 
-[Read the usage instructions here](https://github.com/PyTorchLightning/pytorch-lightning-conference-seed/blob/master/HOWTO.md)
-
 #### Goals  
 The goal of this seed is to structure ML paper-code the same so that work can easily be extended and replicated.   
 
@@ -49,7 +47,7 @@ cd deep-learning-project-template
 pip install -e .   
 pip install -r requirements.txt
  ```   
- Next, navigate to [Your Main Contribution (MNIST here)] and run it.   
+ Next, navigate to any file and run it.   
  ```bash
 # module folder
 cd project
