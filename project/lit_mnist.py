@@ -52,6 +52,34 @@ class LitClassifier(pl.LightningModule):
         return parser
 
 
+class LitMNISTDataModule(pl.LightningDataModule):
+
+    def __init__(self, args):
+        super().__init__()
+        self.data_dir = args.data_dir
+        self.batch_size = args.batch_size
+
+        self.transform = transforms.Compose([transforms.ToTensor()])
+
+    def prepare_data(self):
+        MNIST(self.data_dir, train=False, download=True)
+        MNIST(self.data_dir, train=True, download=True)
+
+    def setup(self, stage=None):
+        self.mnist_test = MNIST(self.data_dir, train=False, transform=self.transform)
+        mnist_full = MNIST(self.data_dir, train=True, transform=self.transform)
+        self.mnist_train, self.mnist_val = random_split(mnist_full, [55000, 5000])
+
+    def train_dataloader(self):
+        return DataLoader(self.mnist_train, batch_size=self.batch_size)
+
+    def val_dataloader(self):
+        return DataLoader(self.mnist_val, batch_size=self.batch_size)
+
+    def test_dataloader(self):
+        return DataLoader(self.mnist_test, batch_size=self.batch_size)
+
+
 def cli_main():
     pl.seed_everything(1234)
 
@@ -60,6 +88,7 @@ def cli_main():
     # ------------
     parser = ArgumentParser()
     parser.add_argument('--batch_size', default=32, type=int)
+    parser.add_argument('--data_dir', default='', type=str)
     parser = pl.Trainer.add_argparse_args(parser)
     parser = LitClassifier.add_model_specific_args(parser)
     args = parser.parse_args()
@@ -67,13 +96,7 @@ def cli_main():
     # ------------
     # data
     # ------------
-    dataset = MNIST('', train=True, download=True, transform=transforms.ToTensor())
-    mnist_test = MNIST('', train=False, download=True, transform=transforms.ToTensor())
-    mnist_train, mnist_val = random_split(dataset, [55000, 5000])
-
-    train_loader = DataLoader(mnist_train, batch_size=args.batch_size)
-    val_loader = DataLoader(mnist_val, batch_size=args.batch_size)
-    test_loader = DataLoader(mnist_test, batch_size=args.batch_size)
+    mnist = LitMNISTDataModule(args=args)
 
     # ------------
     # model
@@ -84,12 +107,12 @@ def cli_main():
     # training
     # ------------
     trainer = pl.Trainer.from_argparse_args(args)
-    trainer.fit(model, train_loader, val_loader)
+    trainer.fit(model, mnist)
 
     # ------------
     # testing
     # ------------
-    trainer.test(test_dataloaders=test_loader)
+    trainer.test(datamodule=mnist)
 
 
 if __name__ == '__main__':
