@@ -3,7 +3,7 @@ from argparse import ArgumentParser
 import torch
 import pytorch_lightning as pl
 from torch.nn import functional as F
-from torch.utils.data import DataLoader, random_split
+from torch.utils.data import DataLoader, data, random_split
 
 from torchvision.datasets.mnist import MNIST
 from torchvision import transforms
@@ -54,10 +54,10 @@ class LitClassifier(pl.LightningModule):
 
 class LitMNISTDataModule(pl.LightningDataModule):
 
-    def __init__(self, args):
+    def __init__(self, data_dir, batch_size):
         super().__init__()
-        self.data_dir = args.data_dir
-        self.batch_size = args.batch_size
+        self.data_dir = data_dir
+        self.batch_size = batch_size
 
         self.transform = transforms.Compose([transforms.ToTensor()])
 
@@ -96,7 +96,7 @@ def cli_main():
     # ------------
     # data
     # ------------
-    mnist = LitMNISTDataModule(args=args)
+    mnist = LitMNISTDataModule(args.data_dir, args.batch_size)
 
     # ------------
     # model
