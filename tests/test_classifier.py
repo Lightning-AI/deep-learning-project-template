@@ -1,5 +1,4 @@
 from pytorch_lightning import Trainer, seed_everything
-from torch.utils import data
 from project.lit_mnist import LitClassifier
 from project.lit_mnist import LitMNISTDataModule
 
