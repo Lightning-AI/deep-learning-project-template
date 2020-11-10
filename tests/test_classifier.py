@@ -13,4 +13,5 @@ def test_lit_classifier():
     trainer.fit(model, mnist)
 
     results = trainer.test(datamodule=mnist)
+
     assert results[0]['test_acc'] > 0.7
