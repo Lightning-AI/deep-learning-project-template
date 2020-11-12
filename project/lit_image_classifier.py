@@ -25,7 +25,9 @@ class Backbone(torch.nn.Module):
 class LitClassifier(pl.LightningModule):
     def __init__(self, backbone, learning_rate=1e-3):
         super().__init__()
-        self.save_hyperparameters()
+        # It's recomended to specify hyperparameters when using a backbone model.
+        # Specifically, avoid saving backbone model
+        self.save_hyperparameters(learning_rate)
         self.backbone = backbone
 
     def forward(self, x):
