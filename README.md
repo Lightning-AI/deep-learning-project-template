@@ -37,6 +37,15 @@ Conference
 ## Description   
 What it does   
 
+## Use From Torch Hub
+```python
+import torch
+model = torch.hub.load(
+    "pytorchlightning/deep-learning-project-template",
+    "lit_classifier",
+)
+```
+
 ## How to run   
 First, install dependencies   
 ```bash
