@@ -42,7 +42,8 @@ What it does
 import torch
 model = torch.hub.load(
     "pytorchlightning/deep-learning-project-template",
-    "lit_classifier",)
+    "lit_classifier",
+)
 ```
 
 ## How to run   
