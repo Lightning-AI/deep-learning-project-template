@@ -54,7 +54,13 @@ pip install -r requirements.txt
 cd project
 
 # run module (example: mnist as your main contribution)   
-python lit_classifier_main.py    
+python lit_mnist.py
+
+# train on GPU
+python lit_mnist.py --max_epochs 100 --accelerator gpu
+
+# Multi GPU'
+python lit_mnist.py --max_epochs 100 --accelerator gpu --strategy ddp --devices 2
 ```
 
 ## Imports
