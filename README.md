@@ -50,39 +50,12 @@ pip install -r requirements.txt
  ```   
  Next, navigate to any file and run it.   
  ```bash
-# module folder
-cd project
-
 # run module (example: mnist as your main contribution)   
-python lit_mnist.py
-
-# train on GPU
-python lit_mnist.py --max_epochs 100 --accelerator gpu
-
-# Multi GPU'
-python lit_mnist.py --max_epochs 100 --accelerator gpu --strategy ddp --devices 2
+python project/train.py fit --config ../config/config.yaml
 ```
 
-## Imports
-This project is setup as a package which means you can now easily import any file into any other file like so:
-```python
-from project.datasets.mnist import mnist
-from project.lit_classifier_main import LitClassifier
-from pytorch_lightning import Trainer
-
-# model
-model = LitClassifier()
-
-# data
-train, val, test = mnist()
-
-# train
-trainer = Trainer()
-trainer.fit(model, train, val)
-
-# test using the best model!
-trainer.test(test_dataloaders=test)
-```
+## Config
+If you would like to learn more about the lightning cli please head over to the [LighningCLI](https://lightning.ai/docs/pytorch/stable/cli/lightning_cli.html) docs.
 
 ### Citation   
 ```
