@@ -1,0 +1,31 @@
+# pytorch_lightning==2.0.1
+seed_everything: 1234
+trainer:
+  accelerator: auto
+  devices: auto
+  num_nodes: 1
+  precision: 32-true
+  logger:
+    - class_path: pytorch_lightning.loggers.WandbLogger
+      init_args:
+        name: lit_mnist_logs
+        save_dir: logs
+        project: pl_template
+  callbacks:
+    - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+      init_args:
+          verbose: True
+    - class_path: pytorch_lightning.callbacks.LearningRateMonitor
+  fast_dev_run: false
+  max_epochs: 100
+model:
+  class_path: lit_mnist.LitClassifier
+  init_args:
+    hidden_dim: 128
+    learning_rate: 0.001
+data:
+  class_path: lit_mnist.MNISTDataModule
+  init_args:
+    data_dir: ''
+    batch_size: 16
+ckpt_path: null
